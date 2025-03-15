@@ -1,1 +1,84 @@
+iterator <- iterable
+                   ↑
+               Collection
+                   ↑
+         List     Set    Queue
+                           ↑
+                         Deque
+                         
+                         
+- List比Set多了一個索引編號，而且也允許重覆
+
+- Set 唯一的限制是不允許重覆的物件存在。
+Set 常用的實作主要有3個：
+• LinkedHashSet
+保證裡面元素存放的順序與新增時相同。最適合拿來存放由資料庫中存取的資料集。
+• HashSet
+讀取特快，但不保證存放元素的順序。
+• TreeSet
+依物件大小來決定集合裡面的順序。所以存放於TreeSet中元素必需是(實作) Comparable 的物件。有時候當從自料庫中存取的資料必需自行排序時，就會用到。
+
+* Queue 可以允許先入先出(FIFO / First-In-First-Out)。
+    - 即是新加入的元素會在尾部，而移除元素會在頭部開始。
+    - 隊列是有大小限制的，如果使用add()方法加入超過會拋出unchecked異常、offer()則會返回null
+    - remove()、poll()都是刪除第一個元素。如果在空集合的時候呼叫poll()不是拋出異常而是回null
+    - element()、peek()都是檢查頭部第一個元素。在陣列為空時，element()會拋異常，而peek()返回null。
+
+* Deque 是指a double-ended queue(雙向佇列)，可以從頭部(左邊)或者在尾部(右邊)的位置進行任何元素的新增移除。
+    - 1.可以修改array的大小。 2.無限制array的長度。3.禁止Null 的元素。4.不是 thread-safe. 所以多個thread同時存取是不支持的
+    - 方法()first/Last 新刪查頭尾
+
+
+# Map 
+底下方法
+1.  values() :獲取集合中所有的值。
+
+   Map<String,String> map = new Hash<String,String>();
+   map.put("01","zhangsan");
+   map.put("02","lisi");
+   map.put("03","wangwu");
+
+  Collection<String> collection = map.values();
+  System.out.prinntln(collection);
+
+ 
+ 2. keySet() :所有的鍵存到set集合中，所有迭代方式取出鍵，再根據get()，獲取每個鍵的值。keySet() 迭代後只能通過get()取得key
+
+   Map<String,String> map = new Hash<String,String>();
+   map.put("01","zhangsan");
+   map.put("02","lisi");
+   map.put("03","wangwu");
+
+   Set<String> keySet = map.keySet();
+   
+   Iterator<String>it = keySet.iterator();
+
+   while(it.hasNext()){
+       String key = it.next();
+       String value = map.get(key);
+       
+       System.out.println("key:" + key + "-->value:" + value);
+   }
+
+
+3. entrySet() : Set<Map.Entry<K,V>> entrySet() //entrySet(): 迭代後可以e.getKey(),e.getValue()
+
+
+   Map<String,String> map = new Hash<String,String>();
+   map.put("01","zhangsan");
+   map.put("02","lisi");
+   map.put("03","wangwu");
+
+   Set<Map.Entry<String,String>> entrySet = map.entrySet();
+   
+   Iterator <Map.Entry<String,String>> it2 = entrySet.iterator();
+
+   while(it2.hasNext()){
+       Map.Entity<String,String> me = it2.next();
+       String key2 = me.getKey();
+       String values = me.getValue();
+       
+       System.out.println("key:" + key2 + value2);
+       
+   }
 
