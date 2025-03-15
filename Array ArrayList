@@ -1,0 +1,39 @@
+Array 與 ArrayList 
+Array 無法因為持續加入成員增加長度。若有需要，必須自己處理。
+(若長度不足，則建立一個足夠長度的新陣列，並將原陣列成員逐一複製過去，再捨棄原陣列
+
+ArrayList不需要設定長度大小，當加入更多成員物件時，ArrayList將自動成長
+
+initial capacity
+StringBuilder和ArrayList類別在建構時都可以指定initial capacity，但非必要。
+使用上因為反覆建立更長的陣列將大量使用CPU和記憶體資源，因此若事先可以預知長度，Java建議在一開始建構StringBuilder和ArrayList物件時就指定適當的初始長度，亦即initial capacity。
+
+迴圈
+do-while迴圈可以執行一次。do-while迴圈結尾必須加上";"，while迴圈沒有。
+
+while:執行0到多次
+do-while:執行1到多次
+for:執行事先定義次數
+
+static
+1.同一個類別內，只要有類別存在就可以使用類別成員，物件成員卻必須以類別建立物件後才能使用，因此先有類別成員，才有物件成員。
+所以物件成員可以呼叫類別成員但類別成員不能呼叫物件成員。
+2.因為每個類別只載入一次，所以類別成員在jvm裡是唯一存在
+3.不建議使用物件成員變數去呼叫類別方法。建議類別取用類別方法
+
+存取修飾詞
+![image](https://hackmd.io/_uploads/rJjqUVwlyg.png)
+
+抽象類別無法使用new關鍵字實例
+一旦方法為抽象方法，類別也必須加上abstract宣告為抽象類別，
+
+Is A(是一個)
+
+shirt is a clothing
+
+Has A
+
+Car has a Wheel
+
+1.透過父類別參考，只能操作繼承自父類別的欄位和方法
+2.子類別就可以操作全部的欄位和方法。
